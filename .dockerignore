@@ -1,0 +1,21 @@
+# Command center
+command_center/.env
+command_center/media/
+command_center/**/migrations/
+
+# Python cache files
+**/__pycache__
+
+# Provisioning server
+Provisioning-server/.env
+
+# Markdown files
+*.md
+
+# UI
+digital-twin-forntend/.env
+digital-twin-forntend/node_modules/
+
+# Edge Device
+RPi_device_agent/recordings
+RPi_device_agent/camera_stream/videos

@@ -1,0 +1,10 @@
+test: ../test/images
+train: ../train/images
+val: ../valid/images
+
+train_labels: ../train/labels
+val_labels: ../val/labels
+test_labels: ../test/labels
+
+nc: 10
+names: ['Hardhat', 'Mask', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Person', 'Safety Cone', 'Safety Vest', 'machinery', 'vehicle']

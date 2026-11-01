@@ -1,0 +1,51 @@
+.active-alert-page {
+  padding: 2rem;
+  background-color: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+.alert-header {
+  margin-bottom: 2rem;
+}
+
+.alert-meta span {
+  display: inline-block;
+  margin-right: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.device-feed-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.device-card {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.device-video {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.device-details td {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.close-button {
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}

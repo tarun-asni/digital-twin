@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trust Setup – Applied SNI</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f7fb;
+      color: #333;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem 3rem;
+      max-width: 600px;
+      margin-top: 4rem;
+    }
+
+    h1 {
+      color: #0066cc;
+    }
+
+    ol {
+      text-align: left;
+      margin: 1.5rem 0;
+    }
+
+    a.download {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.75rem 1.5rem;
+      background-color: #0066cc;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease-in-out;
+    }
+
+    a.download:hover {
+      background-color: #004999;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #1e7e34;
+    }
+
+    .note {
+      background: #fff7e6;
+      border-left: 5px solid #ffc107;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>🔐 Secure Connection Setup</h1>
+    <p>Welcome to <strong>Applied SNI</strong>.</p>
+    <p>
+      To access this site securely over HTTPS, please install our local
+      <strong>Root CA certificate</strong> once.
+    </p>
+
+    <a href="/rootCA.pem" download class="download">⬇️ Download Root CA Certificate</a>
+
+    <h3>Installation Steps</h3>
+    <ol>
+      <li>Download the certificate using the button above.</li>
+      <li>Open the downloaded <code>rootCA.pem</code> file.</li>
+      <li>
+        Install it in your system's or browser’s
+        <strong>Trusted Root Certification Authorities</strong> store.
+      </li>
+      <li>After installation, click below to verify secure access.</li>
+    </ol>
+
+    <button id="secureButton">✅ Try Secure Connection</button>
+
+    <div class="note">
+      <strong>Note:</strong> This certificate is used only within your
+      private network (Tailnet). You can safely trust it for internal use.
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Applied SNI Systems. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("secureButton").addEventListener("click", () => {
+      const currentHost = window.location.hostname;
+      const currentPort = window.location.port ? `:${window.location.port}` : "";
+      const secureUrl = `https://${currentHost}${currentPort}`;
+      window.location.href = secureUrl;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies for psycopg2 and cryptography
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first
+COPY Provisioning-server/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY Provisioning-server /app/Provisioning-server
+COPY common /app/common
+COPY RPi_device_agent /app/Provisioning-server/app/setup/RPi_device_agent
+COPY utils /app/Provisioning-server/app/setup/utils

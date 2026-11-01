@@ -1,0 +1,276 @@
+.alert-detail-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 50px 0px 32px 5px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+
+.alert-detail-container h2 {
+  font-size: 28px;
+  margin-bottom: 0px;
+  color: #2c3e50;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
+  margin-top: 0px;
+ 
+}
+
+.alert-columns {
+  display: flex;
+  gap: 32px;
+}
+
+.alert-left {
+  flex: 1;
+}
+
+.alert-row {
+  margin-bottom: 20px;
+}
+
+.alert-label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #111;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.alert-value {
+  font-size: 20px;
+  color: #222;
+}
+.severity-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.severity-critical {
+  background-color: #e53935;
+}
+
+.severity-high {
+  background-color: #fb8c00;
+}
+
+.severity-medium {
+  color: #000;
+}
+
+.severity-low {
+  background-color: #43a047;
+}
+
+.video-section {
+  margin-top: 20px;
+}
+
+.video-section label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.alert-video-player {
+  width: 100%;
+  height: 300px;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  margin: 0;
+  object-fit: cover;
+}
+.alert-right {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  flex-basis: 50%;
+  max-width: 280px;
+}
+
+.alert-right h3 {
+  font-size: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.insight-row {
+  margin-bottom: 22px;
+}
+
+.insight-label {
+  font-weight: 600;
+  font-size: 18px;
+  color: #bbb;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.insight-value {
+  font-size: 16px;
+  color: #fff;
+}
+.horizontal-row {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.alert-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.alert-label-inline {
+  font-weight: 600;
+  font-size: 22px;
+}
+.alert-value:first-of-type {
+  margin-right: 60px;
+}
+
+.alert-pair {
+  display: flex;
+  align-items: center;
+}
+
+.camera-pair {
+  margin-left: 24px;
+}
+.severity-high .alert-label-inline,
+.severity-high .alert-value {
+  color: #d32f2f;
+}
+
+.severity-low .alert-label-inline,
+.severity-low .alert-value {
+  color: #388e3c;
+}
+
+.severity-medium .alert-label-inline,
+.severity-medium .alert-value {
+  color: #f9a825;
+}
+.alert-meta-summary {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+.device-summary-row {
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.device-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.device-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #333;
+}
+
+.status-active {
+  color: green;
+  font-weight: 600;
+}
+
+.status-inactive {
+  color: gray;
+  font-weight: 600;
+}
+
+.device-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0px;
+  font-size: 14px;
+}
+.devicelist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0px;
+  font-size: 14px;
+}
+
+.device-table th,
+.device-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.devicelist-table th,
+.devicelist-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.device-table th {
+  background-color: #0078d4;
+  color: white;
+  font-weight: 600;
+}
+.devicelist-table th {
+  background-color: #0078d4;
+  color: white;
+  font-weight: 600;
+}
+
+.status-active {
+  color: green;
+  font-weight: 600;
+}
+
+.status-inactive {
+  color: gray;
+  font-weight: 600;
+}
+.alert-left h2 {
+  margin-bottom: 0px; 
+}
+
+
+#settingheader {
+  font-size: large;       
+  border: none;           
+  background: none;    
+  padding: 0;            
+  cursor: pointer;        
+  transition: transform 0.2s ease; 
+}
+
+#settingheader:hover {
+  transform: scale(1.3);   
+}
+.devicelist-header-title
+{
+  font-size: 20px;
+}

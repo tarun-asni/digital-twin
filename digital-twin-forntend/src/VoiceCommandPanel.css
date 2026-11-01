@@ -1,0 +1,14 @@
+.input-wrapper {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.voice-input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #222;
+  color: #fff;
+}

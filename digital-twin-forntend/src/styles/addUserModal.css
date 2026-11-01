@@ -1,0 +1,43 @@
+.custom-modal .btn-close {
+  filter: brightness(0.5)!important;
+  width: 1.25em !important;
+  height: 1.25em !important;
+}
+
+.custom-modal .btn-close:hover {
+  filter: brightness(1)!important;
+}
+
+.custom-modal-header {
+  background-color: #0078d4;
+  padding: 0.5rem 1rem !important;
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+  position: relative !important;
+  
+}
+
+.custom-modal-header .btn-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  filter: brightness(0.9);
+}
+.form-row:first-child {
+  margin-top: 0 !important;
+}
+.custom-close-btn {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  cursor: pointer;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 1;
+}

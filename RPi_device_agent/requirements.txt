@@ -1,0 +1,43 @@
+# Core framework
+Flask==3.1.1
+Werkzeug==3.1.3
+SQLAlchemy==2.0.41
+psycopg2-binary==2.9.10
+pydantic-settings>=2.10.1
+python-dotenv==1.1.1
+filterpy==1.4.5
+# API / Communication
+requests==2.32.4
+paho-mqtt==1.6.1
+schedule==1.2.2
+
+# CV / ML / AI
+opencv-python==4.11.0.86
+cvzone==1.6.1
+ultralytics==8.3.161
+ultralytics-thop==2.0.14
+torch==2.7.1
+torchvision==0.22.1
+onnxruntime==1.22.0
+filterpy==1.4.5
+motpy==0.0.10
+
+# Math / Data
+numpy==2.2.6
+pandas==2.3.0
+scipy==1.15.3
+matplotlib==3.10.3
+sympy==1.14.0
+shapely==2.1.1
+
+# Utils
+coloredlogs==15.0.0
+PyYAML==6.0.2
+tqdm==4.67.1
+psutil==7.0.0
+cryptography==45.0.5
+
+# Drone / Hardware
+dronekit==2.9.2
+MAVProxy==1.8.74
+# RPi.GPIO==0.7.1

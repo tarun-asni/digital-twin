@@ -1,0 +1,238 @@
+.user-top-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #2a2a2a;
+  padding: 16px 24px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  margin-bottom: 2px;
+}
+
+.user-page-container {
+  gap: 2rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0px 0px 32px 10px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+   overflow-y: auto;
+}
+
+.user-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.user-title {
+  font-size: 28px;
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+
+}
+
+.user-list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.usermanage-table-wrapper {
+  max-height: 600px;
+  overflow-x: auto;
+}
+ .user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0px;
+  font-size: 14px;
+  table-layout: fixed;
+} 
+
+.user-table th {
+  background-color: #0078d4;
+  color: white;
+  font-weight: 600;
+}
+
+.user-table th,
+.user-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+
+.user-table thead {
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+}
+
+
+@media (max-width: 900px) {
+  .user-page-container {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .user-list {
+    padding: 0.75rem;
+    height: auto;
+    width: 100%;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-page-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+.user-table th.user-table-staff-status-col,
+.user-table td.user-table-staff-status-col {
+  text-align: center;
+  vertical-align: middle; }
+
+
+
+.user-table th.user-table-staff-role-col,
+.user-table td.user-table-staff-role-col {
+  text-align: center;
+  vertical-align: middle;
+ 
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.page-btn {
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.page-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.useradd-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  display: inline-block;
+  background-color: #1b92ed;
+  border: 1px solid #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.useradd-btn:hover{
+  color: white;
+  background-color: #1b92ed;
+  border-color: #007bff;
+  border-radius: 4px;
+}
+
+.user-list-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 4px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+.user-header-title
+{
+  font-size: 20px;
+}
+.user-table td.edit-cell {
+  text-align: left;
+  vertical-align: middle;
+  width: 80px;
+}
+
+.user-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.user-table th:nth-child(1),
+.user-table td:nth-child(1) {
+  width: 140px;
+}
+
+.user-table th:nth-child(2),
+.user-table td:nth-child(2) {
+  width: 140px;
+}
+
+.user-table th:nth-child(3),
+.user-table td:nth-child(3) {
+  width: 140px; 
+}
+
+.user-table th:nth-child(4),
+.user-table td:nth-child(4) {
+  width: 100px; /* Roles */
+}
+
+.user-table th:nth-child(5),
+.user-table td:nth-child(5) {
+  width: 100px;
+}
+
+.user-table th:nth-child(6),
+.user-table td:nth-child(6) {
+  width: 80px;
+}
+@media (max-width: 768px) {
+  .user-table th,
+  .user-table td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .user-table td {
+    white-space: normal;
+  }
+}

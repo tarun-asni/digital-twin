@@ -1,0 +1,112 @@
+
+.user-wrapper {
+  background: #121212;
+  color: #fff;
+}
+
+.alerttop-nav-bar {
+  background: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar-toggle-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.user-header-title {
+  font-size: 1.25rem;
+}
+
+.tab-switchers {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+  align-items: center;
+}
+
+.tab-btn {
+  background-color: #2a2a2a;
+  color: #ccc;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.tab-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+.alert-page-container {
+  padding: 0rem;
+  height: calc(100vh);
+}
+.alert-content-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 46px;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+}
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #1e1e1e;
+  border-bottom: 2px solid #333;
+  margin-bottom: 0.25rem;
+  padding-left: 15px;
+}
+
+.tab-pill {
+  flex: 1;
+  text-align: center;
+  background-color: #2a2a2a;
+  color: #ccc;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.tab-pill:hover {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.tab-pill.active {
+  background-color: #007bff;
+  color: #fff;
+  position: relative;
+}
+
+.tab-pill.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+.alert-view {
+  width: 100%;
+  min-height: 0;
+}

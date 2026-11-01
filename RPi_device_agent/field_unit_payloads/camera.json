@@ -1,0 +1,14 @@
+{
+  "name": "<Device_name>",
+  "model": "SC-500",
+  "manufacturer": "CamCorp",
+  "serial_number": "<SL-NO>",
+  "edge_url": "http://<device-ip>:5001",
+  "latitude": 13.0827,
+  "longitude": 80.2707,
+  "altitude": 25.0,
+  "camera_type": "SECURITY",
+  "resolution": "1080p",
+  "power_source": "AC",
+  "installation_date": "date"
+}

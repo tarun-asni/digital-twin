@@ -1,0 +1,182 @@
+services:
+
+  # Redis
+  redis:
+    image: redis:7
+    container_name: redis-server
+    ports:
+      - "${REDIS_PORT_LOCAL}:6379"
+    restart: unless-stopped
+    networks:
+      - digital-twin
+
+  # PostgreSQL
+  postgres:
+    image: postgres:14
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${POSTGRES_PORT_LOCAL}:5432"
+    volumes:
+      - .docker/postgres/data:/var/lib/postgresql/data
+      - ./common/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    restart: unless-stopped
+    networks:
+      - digital-twin
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # Nginx
+  nginx:
+    build:
+      context: .docker/nginx
+      dockerfile: Dockerfile
+    container_name: nginx-server
+    ports:
+      - "${NGINX_PORT_LOCAL}:443"
+      - 80:80
+    restart: unless-stopped
+    networks:
+      - digital-twin
+  
+  # Mosquitto
+  mosquitto:
+    build:
+      context: .docker/mosquitto
+      dockerfile: Dockerfile
+    container_name: mosquitto-broker
+    ports:
+      - "${MOSQUITTO_PORT_LOCAL}:8883"
+    volumes:
+      - .docker/mosquitto/data:/mosquitto/data
+      - .docker/mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - digital-twin
+  
+  # Command center
+  command_center_web:
+    build:
+      context: .
+      dockerfile: Dockerfile.cc
+    image: command-center:latest
+    container_name: command-center-web
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    ports:
+      - "${COMMAND_CENTER_PORT_LOCAL}:8000"
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./command_center:/app/command_center
+    working_dir: /app/command_center
+    command: >
+      sh -c "python manage.py makemigrations &&
+            python manage.py migrate &&
+            python manage.py setup_roles &&
+            python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - digital-twin
+  
+  # WebSocket
+  websocket:
+    image: command-center:latest
+    container_name: websocket-server
+    depends_on:
+      - command_center_web
+      - redis
+    expose:
+      - "8001"
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./command_center:/app/command_center
+    working_dir: /app/command_center
+    command: daphne -b 0.0.0.0 -p 8001 sensegrid.asgi:application
+    networks:
+      - digital-twin
+
+  # Q cluster
+  command_center_q:
+    image: command-center:latest
+    container_name: command-center-q
+    depends_on:
+      - command_center_web
+      - postgres
+      - redis
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./command_center:/app/command_center
+    working_dir: /app/command_center
+    command: python manage.py qcluster
+    networks:
+      - digital-twin
+    
+  # Device Configuration
+  device_configuration:
+    image: command-center:latest
+    container_name: device-configuration
+    depends_on:
+      - command_center_web
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./command_center:/app/command_center
+    working_dir: /app/command_center
+    command: python manage.py start_device_monitor
+    networks:
+      - digital-twin
+
+  # Provisioning server
+  provisioning_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.provision
+    image: provisioning-server:latest
+    container_name: provisioning-server
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${PROVISION_PORT_LOCAL}:5000"
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./Provisioning-server/certs:/app/Provisioning-server/certs
+    working_dir: /app/Provisioning-server
+    command: python run.py
+    networks:
+      - digital-twin
+
+  # React
+  digital-front-end:
+    build:
+      context: ./digital-twin-forntend
+      dockerfile: Dockerfile
+    container_name: digital-twin-frontend
+    ports:
+      - "${FRONTEND_PORT_LOCAL}:3000"
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./digital-twin-forntend:/app
+      - /app/node_modules
+    command: npm start
+    networks:
+      - digital-twin
+
+networks:
+  digital-twin:
+    name: digital-twin
+    driver: bridge

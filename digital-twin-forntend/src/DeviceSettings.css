@@ -1,0 +1,372 @@
+
+.page-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 32px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow-x: hidden;
+}
+
+
+.device-list {
+  flex: 2;
+  border-radius: 8px;
+
+  padding: 1rem;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 0px;
+  color: #2c3e50;
+  padding-bottom: 8px;
+  margin-top: 0px;
+}
+
+.table-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.device-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.device-table th,
+.device-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.device-table thead {
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+}
+
+.row-alt {
+  background: #f9f9f9;
+}
+
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.85rem;
+}
+.status.enabled {
+  background: #22c55e;
+}
+.status.disabled {
+  background: #ef4444;
+}
+
+.edit-btn {
+  cursor: pointer;
+  color: #4f46e5;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+}
+.edit-btn:hover {
+  color: #3730a3;
+}
+
+.device-form {
+  flex: 1;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.2rem;
+  min-width: 0;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.form-title {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn.add {
+  background-color: #5e95cf;
+}
+.btn.add:hover {
+  background-color: #72adeb;
+}
+.btn.save {
+  background: #22c55e;
+}
+.btn.save:hover {
+  background: #16a34a;
+}
+.btn.cancel {
+  background: #ef4444;
+}
+.btn.cancel:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 1200px) {
+  .page-container {
+    gap: 1.5rem;
+    padding: 2.5rem;
+  }
+
+  .device-form {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-container {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .device-list,
+  .device-form {
+    flex: 1 1 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .device-form {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .table-wrapper {
+    max-height: 400px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .device-table th,
+  .device-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .status {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .edit-btn {
+    font-size: 0.8rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .device-list {
+    padding: 0.75rem;
+  }
+
+  .device-form {
+    padding: 1rem;
+  }
+
+  .device-table {
+    table-layout: auto;
+  }
+
+  .device-table th,
+  .device-table td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-group {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.modal-overlay-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto; 
+  padding: 2rem 1rem;
+  z-index: 1000;
+}
+
+.modal-content-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+.device-list-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  display: inline-block;
+  background-color: #1b92ed;
+  border: 1px solid #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.add-btn:hover{
+     color: white;
+  background-color: #1b92ed;
+  border-color: #007bff;
+  border-radius: 4px;
+}
+
+
+.mandatory {
+  color: red;
+  margin-left: 2px;
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 2px;
+}
+.devicesetting-header-title{
+ font-size: 20px; 
+}
+@media (max-width: 480px) {
+  .modal-content-form {
+    width: 100%;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+}
+.device-table th.name-col,
+.device-table td.name-col {
+  width: 160px;
+}
+
+.device-table th.type-col,
+.device-table td.type-col {
+  width: 120px;
+}
+
+.device-table th.status-col,
+.device-table td.status-col {
+  width: 100px;
+  text-align: center;
+}
+
+.device-table th.updated-col,
+.device-table td.updated-col {
+  width: 160px;
+}
+
+.device-table th.settings-col,
+.device-table td.settings-col {
+  width: 80px;
+  text-align: center;
+}
+.device-name-col { width: 160px; }
+.device-type-col { width: 120px; }
+.device-status-col { width: 100px; text-align: center; }
+.device-updated-col { width: 160px; }
+.device-settings-col { width: 80px; text-align: center; }
+.device-table.no-settings .device-name-col { width: 25%; }
+.device-table.no-settings .device-type-col { width: 25%; }
+.device-table.no-settings .device-status-col { width: 25%; }
+.device-table.no-settings .device-updated-col { width: 25%; }
